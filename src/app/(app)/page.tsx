@@ -1,15 +1,21 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { Archive, Settings, Trash2 } from 'lucide-react'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
+import React from 'react'
+import { useTransitionRouter } from 'next-view-transitions'
 
 export default function Page() {
+  const router = useTransitionRouter()
+
   return (
-    <>
+    <div className="flex h-full w-full">
       {/* Main Content */}
-      <div className="flex flex-1 flex-col">
+      <div className="flex w-full flex-1 flex-col">
         {/* Header */}
-        <header className="flex h-14 items-center justify-between border-b px-6 bg-background/50 backdrop-blur-xl">
+        <header className="flex h-14 min-h-14 items-center justify-between border-b bg-background/50 px-6 backdrop-blur-xl">
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-semibold">Inbox</h1>
             <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
@@ -22,28 +28,31 @@ export default function Page() {
         </header>
 
         {/* Email List */}
-        <ScrollArea className="flex-1">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <div
+        <ScrollArea className="flex flex-1">
+          {Array.from({ length: 40 }).map((_, i) => (
+            <Button
               key={i}
+              onClick={() => router.push('/view/1')}
               className={cn(
-                'flex cursor-pointer items-center gap-4 border-b p-4 hover:bg-muted/50',
+                'flex h-auto max-w-[100dvw] w-full flex-col items-start rounded-none border-b p-3 hover:bg-muted/50 hover:after:rounded-none md:flex-row md:items-center md:gap-4 md:p-4',
                 i === 0 && 'bg-muted/30',
               )}
             >
-              <div className="h-2 w-2 rounded-full bg-primary" />
-              <div className="min-w-[180px] font-medium">Vercel Team</div>
-              <div className="flex-1 text-muted-foreground">
+              <div className="flex w-full text-base font-medium md:w-auto">
+                Vercel Team
+                <div className="ml-auto mr-2 text-xs text-muted-foreground md:hidden">12:42 PM</div>
+              </div>
+              <div className="max-w-full flex-1 overflow-hidden text-ellipsis text-start text-sm text-muted-foreground">
                 Your weekly project summary and latest deployment updates...
               </div>
-              <div className="text-sm text-muted-foreground">12:42 PM</div>
-            </div>
+              <div className="hidden text-xs text-muted-foreground md:block">12:42 PM</div>
+            </Button>
           ))}
         </ScrollArea>
       </div>
 
       {/* Email Preview */}
-      <div className="w-[600px] border-l bg-background/50 backdrop-blur-xl">
+      <div className="hidden w-[600px] border-l bg-background/50 backdrop-blur-xl lg:block">
         <div className="flex h-14 items-center justify-between border-b px-6">
           <h2 className="font-semibold">Email Preview</h2>
           <div className="flex gap-2">
@@ -80,6 +89,6 @@ export default function Page() {
           </div>
         </ScrollArea>
       </div>
-    </>
+    </div>
   )
 }

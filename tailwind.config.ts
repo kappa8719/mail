@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
   	extend: {
+		transitionTimingFunction: {
+			primary: 'cubic-bezier(0.32, 0.72, 0, 1)',
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

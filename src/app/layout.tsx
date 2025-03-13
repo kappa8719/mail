@@ -3,16 +3,16 @@ import './globals.css'
 import localFont from 'next/font/local'
 
 const pretendard = localFont({
-  // variable: '--font-pretendard',
-  src: './fonts/PretendardVariable.woff2',
-  // display: 'swap',
-  // weight: '45 920',
-})
+  src: './fonts/PretendardVariable.ttf',
+  display: 'swap',
+  weight: '45 920',
+  variable: '--font-pretendard',
+});
 
-// export const metadata: Metadata = {
-//   title: 'Mail',
-//   description: 'Extremely Personalized',
-// }
+export const metadata: Metadata = {
+  title: 'Mail',
+  description: 'Extremely Personalized',
+}
 
 export default function RootLayout({
   children,
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` antialiased`}>{children}</body>
+      <body className={`${pretendard.className} antialiased`}>{children}</body>
     </html>
   )
 }
