@@ -11,7 +11,7 @@ export default function Page() {
   const router = useTransitionRouter()
 
   return (
-    <div className="flex h-full w-full">
+    <div className="flex h-full w-full animate-in fade-in duration-500 slide-in-from-left-[10%] ease-primary">
       {/* Main Content */}
       <div className="flex w-full flex-1 flex-col">
         {/* Header */}
@@ -73,7 +73,7 @@ export default function Page() {
             <div className="space-y-4 text-muted-foreground">
               <p>Hi there,</p>
               <p>
-                Here's your weekly summary of project activities and deployment updates. We've
+                Here&#39;s your weekly summary of project activities and deployment updates. We&#39;ve
                 noticed some great improvements in your application performance.
               </p>
               <p>
