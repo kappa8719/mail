@@ -5,7 +5,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 export default function Page() {
   return (
     <>
-      <div className="bg-background/50 backdrop-blur-xl w-full animate-in fade-in duration-500 slide-in-from-right-3/4 ease-primary">
+      <div className="bg-background/50 backdrop-blur-xl w-full animate-in fade-in duration-500 slide-in-from-right-[10%] ease-primary">
         <div className="flex h-14 items-center justify-between border-b px-6">
           <h2 className="font-semibold">Vercel</h2>
           <div className="flex gap-2">
@@ -26,7 +26,7 @@ export default function Page() {
             <div className="space-y-4 text-muted-foreground">
               <p>Hi there,</p>
               <p>
-                Here's your weekly summary of project activities and deployment updates. We've
+                Here&#39;s your weekly summary of project activities and deployment updates. We&#39;ve
                 noticed some great improvements in your application performance.
               </p>
               <p>
